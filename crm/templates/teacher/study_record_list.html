@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% load url %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">学习记录列表</h3>
+        </div>
+        <div class="panel-body">
+
+            <form action="" method="post" class="form-inline">
+                {% csrf_token %}
+                {{ form_obj.management_form }}
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>学生</th>
+                        <th>考勤</th>
+                        <th>成绩</th>
+                        <th>作业批语</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for form in form_obj %}
+                        <tr>
+                            <td class="hide">{{ form.id }}</td>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ form.instance.student }}</td>
+                            <td>{{ form.attendance }}</td>
+                            <td>{{ form.score }}</td>
+                            <td>{{ form.homework_note }}</td>
+                            <td class="hide">{{ form.course_record }}</td>
+                            <td class="hide">{{ form.student }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <button class="btn btn-primary">保存</button>
+            </form>
+
+
+        </div>
+    </div>
+
+{% endblock %}
