@@ -1,4 +1,3 @@
-本项目纯属练手，轻喷
 
 ## CRM项目
 CRM(customer relationship management)   客户关系管理系统
