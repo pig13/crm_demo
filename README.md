@@ -38,6 +38,7 @@ CRM(customer relationship management)   客户关系管理系统
 1. Font Awesome 4.7.0
 
 ### 部署步骤
+0. 解决依赖，`pip install -r requirements.txt`
 1. 修改settings.DATABASES中的数据库配置
 2. 将app下migrations除init之外全部删除
 3. 数据库迁移，依次执行`python manage.py makemigrations`,`python manage.py migrate`
@@ -118,11 +119,3 @@ crm_demo:
 ----------------------------------------------------------
 
 ```
-
-### 项目预览
-
-![](./static/imgs/preview/CRM客户管理.png)
-![](./static/imgs/preview/CRM班级管理.png)
-![](./static/imgs/preview/CRM角色管理.png)
-![](./static/imgs/preview/CRM菜单管理.png)
-![](./static/imgs/preview/CRM分配权限.png)
