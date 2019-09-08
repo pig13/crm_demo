@@ -52,7 +52,7 @@ CRM(customer relationship management)   客户关系管理系统
 
 ----------------------------------------------------------
 crm_demo:
-   |--Alibaba_crm           项目目录             
+   |--crm_demo           项目目录             
    |  |--init.py     
    |  |--settings.py        项目配置文件     
    |  |--urls.py            URL根配置     
