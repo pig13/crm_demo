@@ -47,7 +47,9 @@ def menu(request):
 
 @register.inclusion_tag('rbac/breadcrumb.html')
 def breadcrumb(request):
-    breadcrumb_list = getattr(request, settings.BREADCRUMB)
+    breadcrumb_list = None
+    if hasattr(request, settings.BREADCRUMB):
+        breadcrumb_list = getattr(request, settings.BREADCRUMB)
     return {'breadcrumb_list': breadcrumb_list}
 
 

@@ -42,11 +42,11 @@ def get_all_url_dict(ignore_namespace_list=None):
     ignore_list = ignore_namespace_list or []
     url_ordered_dict = OrderedDict()
 
-    md = import_module(settings.ROOT_URLCONF)
+    md = import_module(settings.ROOT_URLCONF)  # 动态导包
     urlpatterns = []
-
     for item in md.urlpatterns:
         if isinstance(item, RegexURLResolver) and item.namespace in ignore_list:
+            # 是 For include(...) processing. 类型，且item.namespace在ignore_list 里面
             continue
         urlpatterns.append(item)
     recursion_urls(None, "/", urlpatterns, url_ordered_dict)

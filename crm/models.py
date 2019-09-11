@@ -16,7 +16,7 @@ source_type = (('qq', "qq群"),
                ('office_direct', "直接上门"),
                ('WoM', "口碑"),
                ('public_class', "公开课"),
-               ('website_luffy', "路飞官网"),
+               ('website', "官网"),
                ('others', "其它"),)
 
 enroll_status_choices = (('signed', "已报名"),
@@ -65,7 +65,7 @@ class Department(models.Model):
     #     db_table = 'xxx'   # 表名
 
 
-class UserProfile(User,models.Model):
+class UserProfile(User, models.Model):
     """
     用户表
     username    用户名

@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="luffy-container">
+    <div class="backend-container">
         <form method="post" action="?type=add">
             {% csrf_token %}
             {{ add_formset.management_form }}

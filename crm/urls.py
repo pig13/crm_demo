@@ -10,15 +10,22 @@ urlpatterns = [
     url(r'^customer_list/', consultant.CustomerList.as_view(), name='customer_list'),
     # 私户
     # url(r'^customer_my/', consultant.customer_list, name='customer_my'),
+    # consultant.CustomerList GET公私户查询，POST将用户批量转化为公户、私户、或删除
     url(r'^customer_my/', consultant.CustomerList.as_view(), name='customer_my'),
+    # 添加客户
     url(r'^customer_add/', consultant.customer_change, name='customer_add'),
+    # 编辑客户
     url(r'^customer_edit/(\d+)/', consultant.customer_change, name='customer_edit'),
     # url(r'^customer_change/(\d+)/', consultant.customer_change, name='customer_change'),
 
     # 跟进记录
+    # 跟进记录列表
     url(r'^consult_list/(0)', consultant.consult_list, name='consult_list_all'),
+    # 某个客户跟进记录
     url(r'^consult_list/(?P<customer_id>\d+)', consultant.consult_list, name='consult_list'),
+    # 增加跟进记录
     url(r'^consult_add/', consultant.consult_add, name='consult_add'),
+    # 编辑跟进记录
     url(r'^consult_edit/(\d+)', consultant.consult_edit, name='consult_edit'),
 
     # 报名记录

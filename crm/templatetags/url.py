@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# __author__ = 'whj'
-# Date: 2019/3/9 15:13
+
 from django import template
 from django.urls import reverse
 from django.http import QueryDict
@@ -20,7 +19,7 @@ def revers_url(request, name, *args, **kwargs):
     :return:
     """
     base_url = reverse(name, args=args, kwargs=kwargs)
-    params = request.GET.urlencode()
+    params = request.GET.urlencode()  # 传递当前页面的查询参数给下一页面
     if not params:
         return base_url
     return '{}?{}'.format(base_url, params)
@@ -29,7 +28,7 @@ def revers_url(request, name, *args, **kwargs):
 @register.simple_tag()
 def rev_url(request, name, *args, **kwargs):
     """
-    反向解析生成URL，拼接参数
+    反向解析生成URL，拼接参数，与后端结合完成操作后可以调回原页面
     :return:
     """
 

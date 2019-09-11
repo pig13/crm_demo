@@ -1,7 +1,5 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# __author__ = 'whj'
-# Date: 2019/3/3 22:56
 from django import forms
 from crm import models
 from django.core.exceptions import ValidationError
@@ -39,11 +37,11 @@ class RegisterForm(BootstrapForm):
         error_messages = {
             'username': {
                 'required': '不能为空',
-                'invalid': '格式错误',
+                'invalid': '账号格式错误',
             },
             'name': {
                 'required': '不能为空',
-                'invalid': '格式错误',
+                'invalid': '名称格式错误',
             },
 
         }

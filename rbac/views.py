@@ -32,7 +32,7 @@ def role_del(request, role_id):
 
 def menu_list(request):
     mid = request.GET.get('mid')
-    menu_all = models.Menu.objects.all()
+    menu_all = models.Menu.objects.all()  # 一级菜单
     if mid:
         permission_all = models.Permission.objects.filter(Q(menu_id=mid) | Q(parent__menu_id=mid))
     else:
@@ -41,12 +41,12 @@ def menu_list(request):
     permission_query = permission_all.values()
     permission_dict = OrderedDict()
     for item in permission_query:
-        if item['menu_id']:
+        if item['menu_id']:  # 二级菜单
             permission_dict[item['id']] = item
             item['children'] = []
     for item in permission_query:
         pid = item['parent_id']
-        if pid:
+        if pid:  # 三级菜单
             permission_dict[pid]['children'].append(item)
 
     return render(request, 'rbac/menu_list.html', {'menu_all': menu_all, 'permission_all': permission_dict, 'mid': mid})
@@ -98,7 +98,12 @@ def multi_permission(request):
     permissions = models.Permission.objects.all()
     # 项目路由系统中的所有URL
     router_dict = get_all_url_dict(ignore_namespace_list=['admin'])
-
+    """
+    {
+        'url别名':{'name':url别名,'url':url},
+        ...
+    }
+    """
     # 数据库中权限的所有的别名
     permissions_name_set = set([i.name for i in permissions])
     # 路由系统中所有的别名

@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# __author__ = 'whj'
-# Date: 2019/3/7 23:09
+
 from django.utils.deprecation import MiddlewareMixin
 from django.shortcuts import redirect, reverse
 from crm.models import UserProfile

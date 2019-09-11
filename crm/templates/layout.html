@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>路飞学城</title>
-    <link rel="shortcut icon" href="{% static 'imgs/luffy-study-logo.png' %} ">
+    <title>管理后台</title>
+    <link rel="shortcut icon" href="{% static 'imgs/study-logo.png' %} ">
     <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.css' %} "/>
     <link rel="stylesheet" href="{% static 'plugins/font-awesome/css/font-awesome.css' %} "/>
     <link rel="stylesheet" href="{% static 'css/commons.css' %} "/>
@@ -52,7 +52,7 @@
             margin-right: -15px;
         }
 
-        .luffy-container {
+        .backend-container {
             padding: 15px;
         }
 
@@ -100,14 +100,14 @@
         <div class="logo-area left">
             <a href="#">
                 <img class="logo" src="{% static 'imgs/logo.svg' %}">
-                <span style="font-size: 18px;">路飞学城 </span>
+                <span style="font-size: 18px;">管理后台 </span>
             </a>
         </div>
 
         <div class="left-menu left">
             <a class="menu-item">资产管理</a>
             <a class="menu-item">用户信息</a>
-            <a class="menu-item">路飞管理</a>
+            <a class="menu-item">在线管理</a>
             <div class="menu-item">
                 <span>使用说明</span>
                 <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -157,18 +157,17 @@
         <div class="menu-body">
             {% load rbac %}
             {% menu request %}
-
-            {#            <div class="static-menu">#}
-            {#                <a href="{% url 'customer_list' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
-            {#                                                                               aria-hidden="true"></i></span> 公户</a>#}
-            {#                <a href="{% url 'customer_my' %}"><span class="icon-wrap"><i class="fa fa-map-o" aria-hidden="true"></i></span>#}
-            {#                    私户</a>#}
-            {#                <a href="{% url 'consult_list' customer_id='0' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
-            {#                                                                                              aria-hidden="true"></i></span>跟进记录</a>#}
-            {#                <a href="{% url 'enrollment_list' customer_id='0' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
-            {#                                                                                                 aria-hidden="true"></i></span>报名记录</a>#}
-            {#                <a href="{% url 'class_list' %}"><span class="icon-wrap"><i class="fa fa-map-o" aria-hidden="true"></i></span>班级列表</a>#}
-            {#            </div>#}
+{#                        <div class="static-menu">#}
+{#                            <a href="{% url 'customer_list' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
+{#                                                                                           aria-hidden="true"></i></span> 公户</a>#}
+{#                            <a href="{% url 'customer_my' %}"><span class="icon-wrap"><i class="fa fa-map-o" aria-hidden="true"></i></span>#}
+{#                                私户</a>#}
+{#                            <a href="{% url 'consult_list' customer_id='0' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
+{#                                                                                                          aria-hidden="true"></i></span>跟进记录</a>#}
+{#                            <a href="{% url 'enrollment_list' customer_id='0' %}"><span class="icon-wrap"><i class="fa fa-map-o"#}
+{#                                                                                                             aria-hidden="true"></i></span>报名记录</a>#}
+{#                            <a href="{% url 'class_list' %}"><span class="icon-wrap"><i class="fa fa-map-o" aria-hidden="true"></i></span>班级列表</a>#}
+{#                        </div>#}
         </div>
     </div>
     <div class="right-body">

@@ -1,7 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-# __author__ = 'whj'
-# Date: 2019/3/9 15:13
+
 from django.urls import reverse
 
 
@@ -22,6 +21,7 @@ def revers_url(request, name, *args, **kwargs):
 
 
 def rev_url(request, name, *args, **kwargs):
+    # 完成操作后可以调回原页面
     base_url = reverse(name, args=args, kwargs=kwargs)
     next_url = request.GET.get('next')
     if next_url:

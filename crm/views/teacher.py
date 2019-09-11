@@ -13,7 +13,7 @@ from crm.utils.url import revers_url, rev_url
 
 class ClassList(View):
     def get(self, request):
-        q = self.search([])
+        q = self.search(['course', 'teachers__username', 'class_type'])
         all_class = models.ClassList.objects.filter(q)
 
         pager = Pagination(request.GET.get('page', '1'), len(all_class), params=request.GET.copy(), per_num=10,
@@ -57,7 +57,7 @@ def class_change(request, class_id=None):
 
 class CourseRecordList(View):
     def get(self, request, class_id):
-        q = self.search([])
+        q = self.search(['date', 'course_title', 'teacher__username'])
         all_course_record = models.CourseRecord.objects.filter(q, re_class_id=class_id)
 
         pager = Pagination(request.GET.get('page', '1'), len(all_course_record), params=request.GET.copy(), per_num=10,
@@ -71,9 +71,9 @@ class CourseRecordList(View):
 
     def post(self, request, class_id=None):
         res = None
+        # 通过反射执行相关操作
         if hasattr(self, request.POST.get('action')):
             res = getattr(self, request.POST.get('action'))()
-        # 如果没有抢到
         if res:
             return res
         return redirect(reverse('course_record_list', kwargs={'class_id': class_id}))
@@ -88,7 +88,7 @@ class CourseRecordList(View):
         return q
 
     def study_record_init(self):
-        course_record_ids = self.request.POST.get('pk')
+        course_record_ids = self.request.POST.get('pk') if self.request.POST.get('pk') else []
         course_record_obj_list = models.CourseRecord.objects.filter(pk__in=course_record_ids)
         for course_record_obj in course_record_obj_list:
             all_students = course_record_obj.re_class.customer_set.all().filter(status='studying')

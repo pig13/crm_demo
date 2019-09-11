@@ -35,6 +35,7 @@ def index(request):
 def register(request):
     form_obj = forms.RegisterForm()
     if request.method == 'POST':
+
         form_obj = forms.RegisterForm(request.POST)
         if form_obj.is_valid():
             # 写到数据库
